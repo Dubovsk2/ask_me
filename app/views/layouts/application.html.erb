@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AskMe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <% current_user.present? ? color = current_user.color : color = '#370617'%>
+      <%= content_tag :div, class: "navbar mb", style: "background-color: #{color}" do %>
+        <p><%= link_to 'ask_me!', questions_path, class: 'title-sm text-bold' %></p>
+        <% if current_user.present? %>
+          <div>
+            <%= link_to nickname_converter(current_user.nickname), user_path(current_user), class: 'mr-sm'%>
+          <%= button_to 'Logout', session_path, method: :delete, class: 'button button-main'%>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to "Login", new_session_path, class: 'button button-yellow mr-sm'%>
+            <%= link_to "Register", new_user_path, class: 'button button-main'%>
+          </div>
+        <% end %>
+      <% end %>
+      <div>
+        <% if flash[:notice].present?%>
+          <p class="mt mb message message-notice"><%=flash[:notice]%></p>
+        <% end %>
+        <% if flash[:alert].present?%>
+          <p class="mt mb message message-alert"><%=flash[:alert]%></p>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

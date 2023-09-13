@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="mb title-lg">Login</h2>
+  <%= form_with scope: :session, url: session_path, data: { turbo: false } do |form| %>
+  <p><%= form.label :email %></p>
+  <p><%= form.text_field :email, class:'form-text-field' %></p>
+  <p class="mt-sm"><%= form.label :password %></p>
+  <p><%= form.password_field :password, class:'form-text-field' %></p>
+  <div class="mt-sm">
+    <%= form.submit 'Login', class: 'button button-main' %>
+    <p class="get_back">or</p>
+    <%= link_to 'Get back on main page', questions_path, class: 'get_back'%>
+  </div>
+<% end %>
+</div>

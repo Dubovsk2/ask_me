@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 class="mb title-lg">New user</h2>
+  <% if @user.errors.any? %>
+    <div class="mt">   
+      <% @user.errors.full_messages.each do |message| %>
+        <p class="mb-sm text-red"><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <%= render 'form', user: @user %>
+</div>

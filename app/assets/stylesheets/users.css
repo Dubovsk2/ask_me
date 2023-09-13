@@ -1,0 +1,33 @@
+.users-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.users-box-user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.users-box-user-bg0 {
+  background-color: #FFF8DC;
+}
+
+.users-box-user-bg1 {
+  background-color: #2F4F4F;
+}
+
+.users-box-user-bg2 {
+  background-color: #E6E6FA;
+}
+
+.users-box-user-bg3 {
+  background-color: #D8BFD8;
+}
+
+.users-box-user-bg4 {
+  background-color: blue;
+}

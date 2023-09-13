@@ -1,0 +1,12 @@
+<%= form_with model: question do |form| %>
+  <%= form.hidden_field :user_id %>
+  <p><%= form.label :body, "Question text:"  %></p>
+  <p><%= form.text_area :body, rows: 5, class:'form-text-area' %></p>
+  <% if question.persisted? %>
+    <p class="mt-sm"><%= form.label :answer, "Answer:"  %></p>
+    <p><%= form.text_area :answer, rows: 5, class:'form-text-area' %></p>
+  <% end %>
+  <div class="mt-sm">
+    <%= form.submit 'Save', class: 'button button-main' %>
+  </div>
+<% end %>

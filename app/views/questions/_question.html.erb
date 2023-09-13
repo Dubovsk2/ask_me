@@ -1,0 +1,25 @@
+<div>
+  <% if question.author_id.present? %>
+    <p class="mb text-sm text-gray">from <%= link_to nickname_converter(question.author.nickname), user_path(question.author) %></p>
+  <% else %>
+    <p class="mb text-sm"></p>
+  <% end %>
+  <%= simple_format(question.body, class: 'mb-sm text-bald text-sm', wrapper_tag: 'p') %>
+  <% if question.answer.present? %>
+    <%= simple_format(question.answer, class: 'text-dark-gray', wrapper_tag: 'p') %>
+  <% end %>
+</div>
+<div class="text-sm question-footer">
+  <div class="text-gray">
+    <%= l(question.created_at, format: :short)%>
+  </div>
+  <% if current_user == question.user %>
+  <div>
+    <% editing_icon = (question.answer.present?) ? fa_icon('pencil') : fa_icon('reply') %>
+    <%= link_to editing_icon, edit_question_path(question), title: 'Edit question' %>
+    <% hiding_item = (question.hidden == true) ? fa_icon('eye-slash') : fa_icon('eye') %>
+    <%= button_to hiding_item, hide_question_path(question), method: :patch, title: 'Hide question' %>
+    <%= button_to fa_icon('trash'), question_path(question), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, title: 'Delete question' %>
+  </div>
+  <% end%>
+</div>

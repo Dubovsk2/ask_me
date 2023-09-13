@@ -1,0 +1,18 @@
+<%= form_with model: @user, data: { turbo: false } do |form| %>
+  <p><%= form.label :name %></p>
+  <p><%= form.text_field :name, class:'form-text-field' %></p>
+  <p class="mt-sm"><%= form.label :nickname %></p>
+  <p><%= form.text_field :nickname, class:'form-text-field' %></p>
+  <p class="mt-sm"><%= form.label :email %></p>
+  <p><%= form.text_field :email, class:'form-text-field' %></p>
+  <p class="mt-sm"><%= form.label :password %></p>
+  <p><%= form.password_field :password, class:'form-text-field' %></p>
+  <p class="mt-sm"><%= form.label :password_confirmation %></p>
+  <p><%= form.password_field :password_confirmation, class:'form-text-field' %></p>
+  <p class='mt-sm'><%= form.color_field :color, class:'form-text-field'%></p>
+  <div class="mt-sm">
+    <%= form.submit 'Save', class: 'button button-main' %>
+    <p class="get_back">or</p>
+    <p class="get_back"><%= link_to 'Get back', :back %></p>
+  </div>
+<% end %>

@@ -1,0 +1,48 @@
+body {
+  color: #03071E;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+a, button {
+  color: #DC2F02;
+}
+
+.title-lg {
+  font-size: 175%;
+}
+
+.title-mg, .title {
+  font-size: 150%;
+}
+
+.title-sm {
+  font-size: 125%;
+}
+
+.text-sm {
+  font-size: 90%;
+}
+
+.text-gray {
+  color: #A0A0A0;
+}
+
+.text-dark-gray {
+ color: #36454f;
+}
+
+.text-red {
+  color: #DC2F02;
+}
+
+.text-right {
+  float: right;
+}
+
+.text-bald {
+  font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
+}

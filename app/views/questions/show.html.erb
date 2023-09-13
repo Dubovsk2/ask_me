@@ -1,0 +1,9 @@
+<div class="container">
+  <p class= "text-gray text-sm">
+    Question <%= @question.id %>      
+    for <%= link_to nickname_converter(@question.user.nickname), user_path(@question.user) %>
+  </p>
+  <%= render 'question', question: @question %>
+  <p class="mt-sm"><%= link_to 'Get back on main page', questions_url %></p>
+<div>
+

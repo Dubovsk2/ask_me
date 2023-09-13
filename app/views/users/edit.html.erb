@@ -1,0 +1,5 @@
+<div class="container">
+  <h2 class="mb title-lg">Edit user</h2>
+  <%= render 'form', user: @user %>
+  <%= button_to 'Delete profile', user_path(@user), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, title: 'Delete profile', class: 'mt'%>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="container mb">
+  <h2 class="title-lg mb">Joined us recently:</h2>
+
+  <div class="users-box">
+    <% @users.each do |user| %>
+      <%= render partial: 'users/user_avatar', locals: { user: user} %>
+    <% end %>
+  </div>
+</div>
+<div class="container mb">
+  <% noun = @questions.size > 1 ? 'Questions' : 'Question' %>
+  <h2 class="title-lg"><%= "#{noun}:"%></h2>
+</div>
+  <% @questions.each do |question| %>
+      <div class="container mb-sm">
+        <p class= "text-gray text-sm">
+          Question <%= link_to question.id, question_path(question) %> 
+          for <%= link_to nickname_converter(question.user.nickname), user_path(question.user) %>
+        </p>
+        <%= render 'question', question: question %>
+      </div>
+  <% end %>

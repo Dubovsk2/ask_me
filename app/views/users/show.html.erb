@@ -1,0 +1,32 @@
+<div class="container mb">
+  <h2 class="title-lg">User profile</h2>
+</div>
+<div class="container user-box">
+  <div>
+    <p class="title"><%= @user.name %></p>
+    <p><%= nickname_converter(@user.nickname) %></p>
+  </div>
+  <% if current_user == @user %>
+    <div class="mt-sm">
+      <%= link_to fa_icon('edit'), edit_user_path(@user), title: 'Edit profile' %>
+    </div>
+  <% end %>
+</div>
+<div class="container mt">
+  <h2 class="mb title-lg">Ask me!</h2>
+  <%= render '/questions/form', question: @question %>
+</div>
+<div class="container mt mb">
+    <h2 class=" title-lg">User's questions:</h2>
+</div>
+<% if @questions.size > 0 %>  
+  <% @questions.each do |question| %>
+    <% opacity = "opacity: 0.85;" if question.hidden %>
+    <%= content_tag :div, class: ["container", "mb"], style: opacity do %>
+      <%= render 'questions/question', question: question %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= render 'question_empty_state' %>
+<% end %>
+
