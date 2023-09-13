@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The app where you can ask questions and get answers, made for goodprogrammer.ru course.
 
-Things you may want to cover:
+Uses ruby 3.1
+Rails 7.
 
-* Ruby version
+Usage:
+Clone repo:
+git clone https://github.com/Dubovsk2/ask_me.git
 
-* System dependencies
+Enter the folder:
+cd ask_me
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run:
+bundle, rails db:migrate, rails s
